@@ -71,9 +71,9 @@ var seedWatch = [false, false, false, false, false, false, false, false, false, 
 			false, false, false, false, false, true, true, false, false, false, false, false, false, false,
 			false, false, false, false, false, false, false, false, false, false, false, false, false, false];
 
-var seed = seedGalaxy;
-var nbrLines = nbrLinesGalaxy;
-var nbrRows = nbrRowsGalaxy;
+var seed = seedExplosion;
+var nbrLines = nbrLinesExplosion;
+var nbrRows = nbrRowsExplosion;
 
 // Definition de la classe necessaires au projet
 class Cell{
