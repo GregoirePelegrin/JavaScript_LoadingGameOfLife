@@ -9,20 +9,71 @@ context.canvas.width = 320;
 // Definition des variables
 var speed = 20;
 var count = 0;
-var nbrLines = 12;
-var nbrRows = 12;
-var seed = [false, false, false, false, false, false, true, true, false, false, false, false,
-			false, false, false, false, false, false, true, true, false, false, false, false,
-			false, false, false, false, false, false, false, false, false, false, false, false,
-			false, false, false, false, true, true, true, true, false, false, false, false,
-			true, true, false, true, false, false, false, false, true, false, false, false,
-			true, true, false, true, false, true, true, false, true, false, false, false,
-			false, false, false, true, false, false, false, true, true, false, true, true,
-			false, false, false, true, false, false, false, false, true, false, true, true,
-			false, false, false, false, true, true, true, true, false, false, false, false,
-			false, false, false, false, false, false, false, false, false, false, false, false,
-			false, false, false, false, true, true, false, false, false, false, false, false,
-			false, false, false, false, true, true, false, false, false, false, false, false];
+var nbrLinesExplosion = 15;
+var nbrRowsExplosion = 15;
+var seedExplosion = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+					false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+					false, false, false, false, false, false, true, true, true, false, false, false, false, false, false,
+					false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+					false, false, false, false, true, false, true, false, true, false, true, false, false, false, false,
+					false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+					false, false, true, false, true, false, false, false, false, false, true, false, true, false, false,
+					false, false, true, false, false, false, false, false, false, false, false, false, true, false, false,
+					false, false, true, false, true, false, false, false, false, false, true, false, true, false, false,
+					false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+					false, false, false, false, true, false, true, false, true, false, true, false, false, false, false,
+					false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+					false, false, false, false, false, false, true, true, true, false, false, false, false, false, false,
+					false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+					false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
+var nbrLinesGalaxy = 17;
+var nbrRowsGalaxy = 17;
+var seedGalaxy = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+					false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+					false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+					false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+					false, false, false, false, true, true, false, true, true, true, true, true, true, false, false, false, false,
+					false, false, false, false, true, true, false, true, true, true, true, true, true, false, false, false, false,
+					false, false, false, false, true, true, false, false, false, false, false, false, false, false, false, false, false,
+					false, false, false, false, true, true, false, false, false, false, false, true, true, false, false, false, false,
+					false, false, false, false, true, true, false, false, false, false, false, true, true, false, false, false, false,
+					false, false, false, false, true, true, false, false, false, false, false, true, true, false, false, false, false,
+					false, false, false, false, false, false, false, false, false, false, false, true, true, false, false, false, false,
+					false, false, false, false, true, true, true, true, true, true, false, true, true, false, false, false, false,
+					false, false, false, false, true, true, true, true, true, true, false, true, true, false, false, false, false,
+					false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+					false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+					false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+					false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
+var nbrLinesGlider = 7;
+var nbrRowsGlider = 10;
+var seedGlider = [false, false, false, false, false, false, false, false, false, false,
+				true, false, false, true, false, false, false, false, false, false,
+				false, false, false, false, true, false, false, false, false, false,
+				true, false, false, false, true, false, false, false, false, false,
+				false, true, true, true, true, false, false, false, false, false,
+				false, false, false, false, false, false, false, false, false, false,
+				false, false, false, false, false, false, false, false, false, false];
+var nbrLinesWatch = 14;
+var nbrRowsWatch = 14;
+var seedWatch = [false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+			false, false, false, false, false, false, false, true, true, false, false, false, false, false,
+			false, false, false, false, false, false, false, true, true, false, false, false, false, false,
+			false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+			false, false, false, false, false, true, true, true, true, false, false, false, false, false,
+			false, true, true, false, true, false, false, false, false, true, false, false, false, false,
+			false, true, true, false, true, false, true, true, false, true, false, false, false, false,
+			false, false, false, false, true, false, false, false, true, true, false, true, true, false,
+			false, false, false, false, true, false, false, false, false, true, false, true, true, false,
+			false, false, false, false, false, true, true, true, true, false, false, false, false, false,
+			false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+			false, false, false, false, false, true, true, false, false, false, false, false, false, false,
+			false, false, false, false, false, true, true, false, false, false, false, false, false, false,
+			false, false, false, false, false, false, false, false, false, false, false, false, false, false];
+
+var seed = seedGalaxy;
+var nbrLines = nbrLinesGalaxy;
+var nbrRows = nbrRowsGalaxy;
 
 // Definition de la classe necessaires au projet
 class Cell{
@@ -86,9 +137,9 @@ class Cell{
 
 // Creer la matrice de cellules
 var cells = new Array();
-for(let i=0; i<nbrRows; i++){
+for(let i=0; i<nbrLines; i++){
 	var temp = Array();
-	for(let j=0; j<nbrLines; j++){
+	for(let j=0; j<nbrRows; j++){
 		temp.push(new Cell(i, j, seed[j * nbrRows + i]));
 	}
 	cells.push(temp);
@@ -126,7 +177,6 @@ for(let i=0; i<nbrLines; i++){
 		cells[i][j].neighbours.push(cells[down][left]);
 		cells[i][j].neighbours.push(cells[down][j]);
 		cells[i][j].neighbours.push(cells[down][right]);
-
 	}
 }
 
